@@ -1,0 +1,8 @@
+Welcome to your Ruby CLI Project!
+
+We are going to use the finnhub.com free API to put together a CLI around stocks!
+
+The flow that is expected should appear as so..
+
+    1. CLI welcomes the user with a greeting
+    2. User is prompted to input a response and which type of stock

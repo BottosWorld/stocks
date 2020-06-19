@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+puts "Permission is now allowed! (chmod + x filename was used to gain permission)"
+
+require "./lib/stocks"
+
+CLI.new
