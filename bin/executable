@@ -2,6 +2,6 @@
 
 puts "Permission is now allowed! (chmod + x filename was used to gain permission)"
 
-require "./lib/stocks"
+require_relative "../lib/stocks"
 
-CLI.new
+Stocks::API.new.query("/quote?symbol=AAPL&token=brm2kafrh5re8ma1q70g")

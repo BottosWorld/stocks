@@ -1,6 +1,7 @@
 Welcome to your Ruby CLI Project!
 
-We are going to use the finnhub.com free API to put together a CLI around stocks!
+We are going to use the finnhub.io free API to put together a CLI around stocks!
+API key - brm2kafrh5re8ma1q70g
 
 The flow that is expected should appear as so..
 
