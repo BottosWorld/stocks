@@ -1,5 +1,5 @@
 class Stocks::CLI
-    attr_reader :api
+    attr_accessor :api
 
     def initialize
         @api = Stocks::API.new
@@ -12,14 +12,17 @@ class Stocks::CLI
     end
 
     def main_menu
-        puts "Please type ticker for a list of stock symbols.."
-        puts "Or, coming soon, you can type in the appropriate stock symbol you wish to receive today's value per share."
+        puts "Please type 'ticker' for a list of stock symbols.."
+        puts "Coming soon, If you know your stock's ticker, you can type 'symbol' to receive more information on that stock."
         puts "Once you are done, please type exit to close the program."
         input = gets.strip
         if input.downcase == "ticker"
             self.api.ticker_api
             list_ticker
             main_menu
+        elsif input.downcase == "symbol"
+            puts "Please enter the stock symbol/ticker you chose. Example: 'AAPL'."
+            insert_stock_symbol(input)
         elsif input.downcase == "exit"
             puts "Thank you, come again!"
         else
@@ -31,8 +34,22 @@ class Stocks::CLI
     def list_ticker
         puts "Listing ticker, please wait.."
         sleep(1)
-        Stocks::Ticker.all.each_with_index {|ticker, i| puts "#{i}. #{ticker.description} ~ #{ticker.symbol}"}
+        Stocks::Ticker.all.each_with_index{|ticker, i| puts "#{i}. #{ticker.description} ~ #{ticker.symbol}"}
     end
+
+    def insert_stock_symbol(input)
+        input = gets.strip
+        if input.upcase
+            self.api.profile_api(input)
+            main_menu
+        elsif input.downcase == "main menu"
+            main_menu
+        else
+            puts "Invalid stock symbol, please try again or enter 'main menu' to go to the main menu and enter 'ticker' to see a list of valid symbols."
+        end
+    end
+
+    def 
 
     def invalid
         puts "Invalid entry, please try again."
