@@ -4,4 +4,6 @@ puts "Permission is now allowed! (chmod + x filename was used to gain permission
 
 require_relative "../lib/stocks"
 
-Stocks::API.new.query("/quote?symbol=AAPL&token=brm2kafrh5re8ma1q70g")
+Stocks::CLI.new.run
+
+# Stocks::API.new.query("/stock/profile2?symbol=AAPL&token=brm2kafrh5re8ma1q70g")

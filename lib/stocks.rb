@@ -12,4 +12,6 @@ end
 require_relative "./stocks/version"
 require_relative "./stocks/api"
 require_relative "./stocks/company"
+require_relative "./stocks/quote"
+require_relative "./stocks/ticker"
 require_relative "./stocks/cli"

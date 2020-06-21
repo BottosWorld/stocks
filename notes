@@ -6,4 +6,14 @@ API key - brm2kafrh5re8ma1q70g
 The flow that is expected should appear as so..
 
     1. CLI welcomes the user with a greeting
-    2. User is prompted to input a response and which type of stock
+    2. User is prompted to input a response:
+        ** Type ticker if you would like to browse through a list of stocks
+        ** Type quote if you would like to see a stocks' price
+        ** Type profile if you would like a company profile of a stock
+    3. User is able to go back to main menu by typing "main menu"
+    4. If user types "ticker", user will be shown a list of all stocks.
+        ** Coming soon, user will have the option to enter a company name to show the ticker for that company **
+    5. If user types "quote", user will be prompted to insert a stock symbol, ex "AAPL", and will receive a quote for pricing information
+    6. If user types "profile", user will be prompted to insert a stock symbol, ex "AAPL", to receive company information.
+    7. If user types an invalid stock symbol, program should return "invalid symbol, try again".
+    8. User should be able to exit the program by typing "exit" and the program will say, "Thank you, come again!"
