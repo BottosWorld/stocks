@@ -3,7 +3,6 @@ class Stocks::API
     attr_accessor :base_url, :profile, :quote, :api_key, :ticker
 
     def initialize
-        # self.base_url = "https://finnhub.io/api/v1/stock/symbol?exchange=US&token=brm2kafrh5re8ma1q70g"
         @base_url = "https://finnhub.io/api/v1"
         @profile = "/stock/profile2?symbol="
         @ticker = "/stock/symbol?exchange=US&token=brm2kafrh5re8ma1q70g"
@@ -22,14 +21,13 @@ class Stocks::API
                 ticker_array.push(ticker_hash)
             end
         Stocks::Ticker.create_from_collection(ticker_array)
-        # binding.pry
     end
 
     def profile_api(symbol)
         @pro_api = @base_url << @profile << "#{symbol.downcase}" << @api_key
         response = RestClient.get(@pro_api)
         json = JSON(response)
-        # binding.pry
+        binding.pry
     end
 
     def quote_api(symbol)
@@ -37,6 +35,23 @@ class Stocks::API
     end
 
 end
+
+
+            # profile_array = []
+            # json.each do |hash|
+            #     profile_hash = {}
+            #     profile_hash[:exchange] = hash["exchange"]
+            #     profile_hash[:finnhubIndustry] = hash["finnhubIndustry"]
+            #     profile_hash[:ipo] = hash["ipo"]
+            #     profile_hash[:marketCapitalization] = hash["marketCapitalization"]
+            #     profile_hash[:name] = hash["name"]
+            #     profile_hash[:weburl] = hash["weburl"]
+            #     profile_array.push(profile_hash)
+            #     # binding.pry
+            # end
+        # Stocks::Company.create_from_collection(profile_array)
+
+
 
     # def query(information)
     #     response = RestClient.get(self.base_url + information + api_key)
@@ -68,3 +83,5 @@ end
 # /stock/symbol?exchange=US - ticker class
 
 # api key = &token=brm2kafrh5re8ma1q70g
+
+        # self.base_url = "https://finnhub.io/api/v1/stock/symbol?exchange=US&token=brm2kafrh5re8ma1q70g"

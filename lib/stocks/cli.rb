@@ -23,6 +23,7 @@ class Stocks::CLI
         elsif input.downcase == "symbol"
             puts "Please enter the stock symbol/ticker you chose. Example: 'AAPL'."
             insert_stock_symbol(input)
+            main_menu
         elsif input.downcase == "exit"
             puts "Thank you, come again!"
         else
@@ -39,17 +40,20 @@ class Stocks::CLI
 
     def insert_stock_symbol(input)
         input = gets.strip
-        if input.upcase
+        if input.upcase.include?("#{input.upcase}")
             self.api.profile_api(input)
-            main_menu
-        elsif input.downcase == "main menu"
-            main_menu
+            list_company_profile
         else
-            puts "Invalid stock symbol, please try again or enter 'main menu' to go to the main menu and enter 'ticker' to see a list of valid symbols."
+            puts "Invalid stock symbol, please try again or enter 'ticker' to see a list of valid symbols."
         end
     end
 
-    def 
+    def list_company_profile
+        puts "Loading profile, please wait..."
+        sleep(1)
+        Stocks::Company.all
+        binding.pry
+    end
 
     def invalid
         puts "Invalid entry, please try again."
