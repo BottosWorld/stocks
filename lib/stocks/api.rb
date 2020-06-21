@@ -24,14 +24,28 @@ class Stocks::API
     end
 
     def profile_api(symbol)
-        @pro_api = @base_url << @profile << "#{symbol.downcase}" << @api_key
+        @pro_api = @base_url << @profile << "#{symbol}" << @api_key
         response = RestClient.get(@pro_api)
         json = JSON(response)
-        binding.pry
+        # json.each{|company_profile| puts company_profile}
+        company_profile = json.each{|company_profile| puts company_profile}
+        profile_array = []
+            # json.each_with_index {|company, i| puts "#{i}. #{company.name} /n ~#{company.exchange}"}
+                    # profile_hash = {}
+                    # profile_hash[:exchange.to_s] = hash["exchange"].to_i
+                # profile_hash[:finnhubIndustry] = hash["finnhubIndustry"]
+                # profile_hash[:ipo] = hash["ipo"]
+                # profile_hash[:marketCapitalization] = hash["marketCapitalization"]
+                # profile_hash[:name] = hash["name"]
+                # profile_hash[:weburl] = hash["weburl"]
+                    # profile_array.push(profile_hash)
+            profile_array << company_profile
+            # end
+        # Stocks::Company.create(profile_array)
     end
 
     def quote_api(symbol)
-
+        # Coming soon!
     end
 
 end
@@ -47,7 +61,7 @@ end
             #     profile_hash[:name] = hash["name"]
             #     profile_hash[:weburl] = hash["weburl"]
             #     profile_array.push(profile_hash)
-            #     # binding.pry
+            #     binding.pry
             # end
         # Stocks::Company.create_from_collection(profile_array)
 

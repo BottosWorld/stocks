@@ -13,7 +13,8 @@ class Stocks::CLI
 
     def main_menu
         puts "Please type 'ticker' for a list of stock symbols.."
-        puts "Coming soon, If you know your stock's ticker, you can type 'symbol' to receive more information on that stock."
+        puts "If you know your stock's ticker, you can type 'symbol' to receive more information on that stock."
+        puts "Coming soon, you will be able to retrieve the value each stock is trading at in real time."
         puts "Once you are done, please type exit to close the program."
         input = gets.strip
         if input.downcase == "ticker"
@@ -35,12 +36,15 @@ class Stocks::CLI
     def list_ticker
         puts "Listing ticker, please wait.."
         sleep(1)
-        Stocks::Ticker.all.each_with_index{|ticker, i| puts "#{i}. #{ticker.description} ~ #{ticker.symbol}"}
+        Stocks::Ticker.all.each_with_index{|ticker, i| puts "#{i+1}. #{ticker.description} ~ #{ticker.symbol}"}
     end
 
     def insert_stock_symbol(input)
         input = gets.strip
-        if input.upcase.include?("#{input.upcase}")
+        if input.length < 5
+            input.upcase.include?("#{input.upcase}")
+            puts "Loading profile, please wait..."
+            sleep(1)
             self.api.profile_api(input)
             list_company_profile
         else
@@ -49,10 +53,9 @@ class Stocks::CLI
     end
 
     def list_company_profile
-        puts "Loading profile, please wait..."
         sleep(1)
-        Stocks::Company.all
-        binding.pry
+        Stocks::Company.all.each_with_index{|company, i| puts "#{i+1}. #{company.name} ~ #{company.weburl}"}
+        # binding.pry
     end
 
     def invalid

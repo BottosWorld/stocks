@@ -6,18 +6,23 @@ class Stocks::Company
 
     @@all = []
 
-    def initialize(hash)
-        hash.each do |key, value|
-            self.send("#{key}=", value)
+    def initialize(array)
+        @@all.each do |key, value|
+            puts "#{key}=, #{value}"
         end
+        save
+    end
+
+    def self.all
+        @@all
     end
 
     def save
         @@all << self unless @@all.include?(self)
     end
 
-    def self.create(hash)
-        profile = self.new(hash)
+    def self.create(array)
+        profile = self.new(array)
         profile.save
         profile
     end
@@ -26,10 +31,6 @@ class Stocks::Company
         array.each do |profile_hash|
             self.create(profile_hash)
         end
-    end
-
-    def self.all
-        @@all
     end
 
 end
