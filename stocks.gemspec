@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["botto54"]
   spec.email         = ["bryanlbottorff@gmail.com"]
 
-  spec.summary       = "Summary"
-  spec.description   = "A gem used to get information on stocks"
+  spec.summary       = "A gem used to get information on stocks"
+  spec.description   = "Welcome to the Stock Ticker CLI, where you can retrieve a list of companies on the exchnage, their profiles, and much more!"
   spec.homepage      = "https://github.com/botto54/stocks"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")

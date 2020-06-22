@@ -2,7 +2,13 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stocks`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+Welcome to the ruby Stocks CLI gem, where you can find all to information needed to maximize your investments!
+
+Starting things off, you will be prompted by the program to enter a stock symbol to retrieve additional information about that specific stock, such as a company profile, current news, share prices, and more!
+
+If you're like me and don't know every companies' stock symbol/ticker, you can enter 'ticker' when you start to retrieve a list of all the companies and their symbols that are on the US stock exchanges.
+
+Stay tuned for more functionality in the near future incorporating company news, share prices, analysts reccomendations, and more!
 
 ## Installation
 
