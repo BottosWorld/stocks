@@ -1,6 +1,6 @@
 # Stocks
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stocks`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stocks`. To experiment with that code, run `bin/executable` for an interactive prompt.
 
 Welcome to the ruby Stocks CLI gem, where you can find all to information needed to maximize your investments!
 
