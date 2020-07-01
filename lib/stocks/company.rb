@@ -1,5 +1,4 @@
     # puts "This is where you will find the company profile for a given stock.."
-    # puts "Coming soon."
 
 class Stocks::Company
     # attr_accessor :exchange, :finnhubIndustry, :name, :weburl, :marketCapitalization, :ipo
