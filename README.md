@@ -8,7 +8,9 @@ Starting things off, you will be prompted by the program to enter a stock symbol
 
 If you're like me and don't know every companies' stock symbol/ticker, you can enter 'ticker' when you start to retrieve a list of all the companies and their symbols that are on the US stock exchanges.
 
-Stay tuned for more functionality in the near future incorporating company news, share prices, analysts reccomendations, and more!
+You can also find out what a company is trading at on the market by entering 'quote' and the appropriate stock symbol/ticker.
+
+Stay tuned for more functionality in the near future incorporating company news, analysts reccomendations, and more!
 
 ## Installation
 
