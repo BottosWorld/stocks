@@ -2,13 +2,19 @@
     # puts "Coming soon."
 
 class Stocks::Company
-    attr_accessor :exchange, :finnhubIndustry, :name, :weburl, :marketCapitalization, :ipo
+    # attr_accessor :exchange, :finnhubIndustry, :name, :weburl, :marketCapitalization, :ipo
 
     @@all = []
 
     def initialize(array)
-        @@all.each do |key, value|
-            puts "#{key}=, #{value}"
+        # @name = "name"
+        # @exchange = "exchange"
+        # @finnhubIndustry = "finnhubIndustry"
+        # @weburl = "weburl"
+        # @ipo = "ipo"
+        # @marketCapitalization = "marketCapitalization"
+        array.each do |key, value|
+            puts "#{key.capitalize} --> #{value}"
         end
         save
     end
@@ -21,8 +27,8 @@ class Stocks::Company
         @@all << self unless @@all.include?(self)
     end
 
-    def self.create(array)
-        profile = self.new(array)
+    def self.create(hash)
+        profile = self.new(hash)
         profile.save
         profile
     end

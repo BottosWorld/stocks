@@ -46,17 +46,17 @@ class Stocks::CLI
             puts "Loading profile, please wait..."
             sleep(1)
             self.api.profile_api(input)
-            list_company_profile
+            # list_company_profile
+            # binding.pry
         else
             puts "Invalid stock symbol, please try again or enter 'ticker' to see a list of valid symbols."
         end
     end
 
-    def list_company_profile
-        sleep(1)
-        Stocks::Company.all.each_with_index{|company, i| puts "#{i+1}. #{company.name} ~ #{company.weburl}"}
-        # binding.pry
-    end
+    # def list_company_profile
+    #     sleep(1)
+    #     Stocks::Company.all
+    # end
 
     def invalid
         puts "Invalid entry, please try again."

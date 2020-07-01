@@ -27,21 +27,11 @@ class Stocks::API
         @pro_api = @base_url << @profile << "#{symbol}" << @api_key
         response = RestClient.get(@pro_api)
         json = JSON(response)
-        # json.each{|company_profile| puts company_profile}
-        company_profile = json.each{|company_profile| puts company_profile}
+        # company_profile = json.each {|key, value| puts value}
         profile_array = []
-            # json.each_with_index {|company, i| puts "#{i}. #{company.name} /n ~#{company.exchange}"}
-                    # profile_hash = {}
-                    # profile_hash[:exchange.to_s] = hash["exchange"].to_i
-                # profile_hash[:finnhubIndustry] = hash["finnhubIndustry"]
-                # profile_hash[:ipo] = hash["ipo"]
-                # profile_hash[:marketCapitalization] = hash["marketCapitalization"]
-                # profile_hash[:name] = hash["name"]
-                # profile_hash[:weburl] = hash["weburl"]
-                    # profile_array.push(profile_hash)
-            profile_array << company_profile
-            # end
-        # Stocks::Company.create(profile_array)
+        profile_array << json
+        # profile_array << company_profile
+        Stocks::Company.create_from_collection(profile_array)
     end
 
     def quote_api(symbol)
@@ -49,53 +39,3 @@ class Stocks::API
     end
 
 end
-
-
-            # profile_array = []
-            # json.each do |hash|
-            #     profile_hash = {}
-            #     profile_hash[:exchange] = hash["exchange"]
-            #     profile_hash[:finnhubIndustry] = hash["finnhubIndustry"]
-            #     profile_hash[:ipo] = hash["ipo"]
-            #     profile_hash[:marketCapitalization] = hash["marketCapitalization"]
-            #     profile_hash[:name] = hash["name"]
-            #     profile_hash[:weburl] = hash["weburl"]
-            #     profile_array.push(profile_hash)
-            #     binding.pry
-            # end
-        # Stocks::Company.create_from_collection(profile_array)
-
-
-
-    # def query(information)
-    #     response = RestClient.get(self.base_url + information + api_key)
-    #     json = JSON(response)
-    #     # binding.pry
-    #     @base_url = "https://finnhub.io/api/v1"
-    #     @ticker = "/stock/symbol?exchange=US"
-    #     @quote = "/quote?symbol=#{symbol}"
-    #     @profile = "/stock/profile2?symbol=#{symbol}"
-    #     @api_key = "&token=brm2kafrh5re8ma1q70g"
-    #     if user_input == "ticker"
-    #         @url = @base_url << @ticker << @api_key
-    #     elsif user_input == "quote"
-    #         @url = @base_url << @quote << Stocks::CLI.symbol << @api_key
-    #     else 
-    #         @url = @base_url << @profile << Stocks::CLI.symbol << @api_key
-    #     end
-    # end
-
-
-
-# api url will look like this: "base_url" + "information" + "api_key"
-
-# base url = https://finnhub.io/api/v1
-
-# information =
-# /stock/profile2?symbol=#{user_input} - company class
-# /quote?symbol=#{user_input} - quote class
-# /stock/symbol?exchange=US - ticker class
-
-# api key = &token=brm2kafrh5re8ma1q70g
-
-        # self.base_url = "https://finnhub.io/api/v1/stock/symbol?exchange=US&token=brm2kafrh5re8ma1q70g"
