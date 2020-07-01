@@ -24,7 +24,7 @@ class Stocks::CLI
         elsif input.downcase == "symbol"
             puts "Please enter the stock symbol/ticker you chose. Example: 'AAPL'."
             insert_stock_symbol(input)
-            Stocks::CLI.new.run
+            Stocks::CLI.new.main_menu
             # main_menu does not work here, get a 401 "unauthorized access" error when requesting from api after initial get response.
         elsif input.downcase == "exit"
             puts "Thank you, come again!"
